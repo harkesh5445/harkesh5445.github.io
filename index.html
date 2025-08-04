@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harikesh Kumar - Full-Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827;
+            /* Subtle background pattern from heropatterns.com */
+            background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231f2937' fill-opacity='0.4'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            color: #e5e7eb; /* Brighter light gray text for better contrast */
+        }
+        .section-title {
+            backdrop-filter: blur(10px);
+            font-size: 2rem; /* Equivalent to text-5xl */
+            font-weight: 500; /* font-bold */
+            color: #ffffff; /* text-white */
+            margin-bottom: 4rem; /* mb-16 */
+        }
+        .card {
+            /* Glassmorphism effect */
+            background-color:rgba(45, 55, 72, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            transition: all 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(20, 184, 166, 0.2); /* Teal glow effect */
+            border-color: rgba(20, 184, 166, 0.5); 
+            padding: 20px;
+            background-color:rgba(45, 55, 72, 0.7);
+        }
+        .skill-badge {
+            @apply bg-teal-600 text-teal-100 text-xs font-semibold mr-2 mb-2 px-3 py-1 rounded-full;
+        }
+        .nav-link {
+            @apply text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors;
+        }
+        .nav-link.active {
+            @apply bg-gray-900 text-white;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-white font-bold text-xl">Harikesh Kumar</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#about" class="nav-link">About</a>
+                        <a href="#skills" class="nav-link">Skills</a>
+                        <a href="#experience" class="nav-link">Experience</a>
+                        <a href="#education" class="nav-link">Education</a>
+                        <a href="#projects" class="nav-link">Projects</a>
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block nav-link text-base">About</a>
+                <a href="#skills" class="block nav-link text-base">Skills</a>
+                <a href="#experience" class="block nav-link text-base">Experience</a>
+                <a href="#education" class="block nav-link text-base">Education</a>
+                <a href="#projects" class="block nav-link text-base">Projects</a>
+                <a href="#contact" class="block nav-link text-base">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- About/Hero Section -->
+        <section id="about" class="min-h-screen flex items-center justify-center text-center py-20">
+            <div class="max-w-4xl">
+                <h1 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-4">
+                    Hi, I'm Harikesh Kumar
+                </h1>
+                <p id="typing-title" class="text-3xl md:text-4xl text-teal-400 mb-8 font-semibold"></p>
+                <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-4xl mx-auto">
+                    A results-oriented Full-Stack Developer with four years of hands-on experience in the complete lifecycle of web application development, from conception and design to deployment and maintenance. My expertise lies in building robust backend systems using PHP and its frameworks like Laravel and CodeIgniter, complemented by a strong command of frontend technologies including JavaScript, HTML, and CSS. I have a proven track record of successfully integrating complex third-party services, including RESTful APIs, payment gateways, and CRM systems. I am passionate about tackling challenging problems, as demonstrated by my work on AI-driven and video processing applications, and I am always eager to leverage my skills to create innovative, scalable, and efficient software solutions.
+                </p>
+                <div class="flex justify-center space-x-6">
+                    <a href="mailto:harkesh5445@gmail.com" class="text-gray-400 hover:text-teal-400 transition-colors text-3xl"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/harikesh-kumar-448833204/" class="text-gray-400 hover:text-teal-400 transition-colors text-3xl"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/harkesh5445?tab=repositories" class="text-gray-400 hover:text-teal-400 transition-colors text-3xl"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Skill Card 1 -->
+                <div class="card">
+                    <h3 class="text-2xl font-bold text-white mb-3"><i class="fas fa-server mr-2 text-teal-400"></i>Backend</h3>
+                    <p class="text-gray-300 mb-4 text-sm">Proficient in server-side logic, database management, and API development.</p>
+                    <div class="flex flex-wrap">
+                        <span class="skill-badge">PHP</span>
+                        <span class="skill-badge">Core PHP</span>
+                        <span class="skill-badge">Laravel</span>
+                        <span class="skill-badge">CodeIgniter</span>
+                        <span class="skill-badge">Node.js</span>
+                    </div>
+                </div>
+                <!-- Skill Card 2 -->
+                <div class="card">
+                    <h3 class="text-2xl font-bold text-white mb-3"><i class="fas fa-code mr-2 text-teal-400"></i>Frontend</h3>
+                    <p class="text-gray-300 mb-4 text-sm">Building responsive and interactive user interfaces with modern web technologies.</p>
+                    <div class="flex flex-wrap">
+                        <span class="skill-badge">HTML5</span>
+                        <span class="skill-badge">CSS3</span>
+                        <span class="skill-badge">JavaScript</span>
+                        <span class="skill-badge">jQuery</span>
+                        <span class="skill-badge">Bootstrap</span>
+                    </div>
+                </div>
+                <!-- Skill Card 3 -->
+                <div class="card">
+                    <h3 class="text-2xl font-bold text-white mb-3"><i class="fas fa-database mr-2 text-teal-400"></i>Databases</h3>
+                     <p class="text-gray-300 mb-4 text-sm">Managing relational and NoSQL databases for efficient data storage and retrieval.</p>
+                    <div class="flex flex-wrap">
+                        <span class="skill-badge">MySQL</span>
+                        <span class="skill-badge">MongoDB</span>
+                    </div>
+                </div>
+                <!-- Skill Card 4 -->
+                <div class="card">
+                    <h3 class="text-2xl font-bold text-white mb-3"><i class="fas fa-cogs mr-2 text-teal-400"></i>DevOps & Tools</h3>
+                    <p class="text-gray-300 mb-4 text-sm">Using essential tools to streamline development and ensure smooth deployments.</p>
+                    <div class="flex flex-wrap">
+                        <span class="skill-badge">Git</span>
+                        <span class="skill-badge">AWS (S3, Polly, EC2)</span>
+                        <span class="skill-badge">JIRA</span>
+                        <span class="skill-badge">Ffmpeg</span>
+                    </div>
+                </div>
+                <!-- Skill Card 5 -->
+                <div class="card lg:col-start-2">
+                    <h3 class="text-2xl font-bold text-white mb-3"><i class="fas fa-project-diagram mr-2 text-teal-400"></i>APIs & Others</h3>
+                    <p class="text-gray-300 mb-4 text-sm">Integrating third-party services like payment gateways and social media APIs.</p>
+                    <div class="flex flex-wrap">
+                        <span class="skill-badge">RESTful API Design</span>
+                        <span class="skill-badge">Payment Gateways</span>
+                        <span class="skill-badge">CRM Integration</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="relative border-l-2 border-gray-700 max-w-3xl mx-auto">
+                <!-- Timeline Item 1 -->
+                <div class="mb-10 ml-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-teal-500 rounded-full -left-3 ring-8 ring-gray-800">
+                        <i class="fas fa-briefcase text-white text-xs"></i>
+                    </span>
+                    <div class="p-4 rounded-lg bg-gray-800/50">
+                        <h3 class="text-2xl font-semibold text-white">PHP Developer</h3>
+                        <p class="text-md font-normal text-gray-400">Regenesys Business School | Remote</p>
+                        <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Dec 2024 - Present</time>
+                        <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1 text-sm">
+                            <li>Develop and maintain robust, secure, and scalable web applications.</li>
+                            <li>Contribute to various CRM platforms (VINE Retail, Doctor, DCS).</li>
+                            <li>Integrate various APIs and payment gateways.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Timeline Item 2 -->
+                <div class="mb-10 ml-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-teal-500 rounded-full -left-3 ring-8 ring-gray-800">
+                        <i class="fas fa-briefcase text-white text-xs"></i>
+                    </span>
+                    <div class="p-4 rounded-lg bg-gray-800/50">
+                        <h3 class="text-2xl font-semibold text-white">Software Engineer</h3>
+                        <p class="text-md font-normal text-gray-400">Techferry | Full-time</p>
+                        <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Feb 2024 - Dec 2024</time>
+                        <p class="text-gray-300 mt-2 text-sm">Served as a Full-Stack Developer, contributing to both frontend and backend development cycles.</p>
+                    </div>
+                </div>
+                <!-- Timeline Item 3 -->
+                <div class="mb-10 ml-6">
+                     <span class="absolute flex items-center justify-center w-6 h-6 bg-teal-500 rounded-full -left-3 ring-8 ring-gray-800">
+                        <i class="fas fa-briefcase text-white text-xs"></i>
+                    </span>
+                    <div class="p-4 rounded-lg bg-gray-800/50">
+                        <h3 class="text-2xl font-semibold text-white">PHP Backend Developer</h3>
+                        <p class="text-md font-normal text-gray-400">vega6 webvare technology | Full-time</p>
+                        <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Jul 2022 - Jan 2024</time>
+                        <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1 text-sm">
+                            <li>Led backend development, bug fixing, and email handling.</li>
+                            <li>Worked on complex AI-based and video processing web applications.</li>
+                            <li>Managed and fixed bugs across more than 50 applications.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Timeline Item 4 -->
+                <div class="ml-6">
+                     <span class="absolute flex items-center justify-center w-6 h-6 bg-teal-500 rounded-full -left-3 ring-8 ring-gray-800">
+                        <i class="fas fa-briefcase text-white text-xs"></i>
+                    </span>
+                    <div class="p-4 rounded-lg bg-gray-800/50">
+                        <h3 class="text-2xl font-semibold text-white">Core PHP and Laravel Developer</h3>
+                        <p class="text-md font-normal text-gray-400">webwire software solutions | Full-time</p>
+                        <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Oct 2021 - Jul 2022</time>
+                        <p class="text-gray-300 mt-2 text-sm">Focused on backend development for e-commerce projects, building features and functionality.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-20">
+            <h2 class="section-title">Education</h2>
+            <div class="relative border-l-2 border-gray-700 max-w-3xl mx-auto">
+                <!-- Timeline Item 1 -->
+                <div class="mb-10 ml-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-teal-500 rounded-full -left-3 ring-8 ring-gray-800">
+                        <i class="fas fa-graduation-cap text-white text-xs"></i>
+                    </span>
+                    <div class="p-4 rounded-lg bg-gray-800/50">
+                        <h3 class="text-2xl font-semibold text-white">B.Tech/B.E. Computers</h3>
+                        <p class="text-md font-normal text-gray-400">Dr. A.P.J. Abdul Kalam Technical University</p>
+                        <time class="block mb-2 text-sm font-normal leading-none text-gray-500">2017 - 2021</time>
+                    </div>
+                </div>
+                <!-- Timeline Item 2 -->
+                <div class="mb-10 ml-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-teal-500 rounded-full -left-3 ring-8 ring-gray-800">
+                        <i class="fas fa-graduation-cap text-white text-xs"></i>
+                    </span>
+                    <div class="p-4 rounded-lg bg-gray-800/50">
+                        <h3 class="text-2xl font-semibold text-white">Class XII</h3>
+                        <p class="text-md font-normal text-gray-400">Adarsh Inter College, Amethi (Uttar Pradesh Board)</p>
+                        <time class="block mb-2 text-sm font-normal leading-none text-gray-500">2015 - 2017</time>
+                    </div>
+                </div>
+                <!-- Timeline Item 3 -->
+                <div class="ml-6">
+                     <span class="absolute flex items-center justify-center w-6 h-6 bg-teal-500 rounded-full -left-3 ring-8 ring-gray-800">
+                        <i class="fas fa-graduation-cap text-white text-xs"></i>
+                    </span>
+                    <div class="p-4 rounded-lg bg-gray-800/50">
+                        <h3 class="text-2xl font-semibold text-white">Class X</h3>
+                        <p class="text-md font-normal text-gray-400">Jawahar Lala Nehru Inter College, Barabanki (Uttar Pradesh Board)</p>
+                        <time class="block mb-2 text-sm font-normal leading-none text-gray-500">2015</time>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20">
+            <h2 class="section-title">Key Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project Card 1 -->
+                <div class="card">
+                    <h3 class="text-2xl font-bold text-white mb-3">wooduu</h3>
+                    <p class="text-gray-300 mb-4">A video generation tool for YouTube creators. Automates video creation using Ffmpeg and integrates with AWS APIs for cloud storage and processing.</p>
+                    <div class="flex flex-wrap">
+                        <span class="skill-badge !bg-blue-600">CodeIgniter</span>
+                        <span class="skill-badge !bg-blue-600">Ffmpeg</span>
+                        <span class="skill-badge !bg-blue-600">AWS APIs</span>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="card">
+                    <h3 class="text-2xl font-bold text-white mb-3">Aistaffs</h3>
+                    <p class="text-gray-300 mb-4">An innovative AI-powered platform using CodeIgniter. Integrates the GPT-3 API for intelligent features and includes secure payment gateway integration.</p>
+                    <div class="flex flex-wrap">
+                        <span class="skill-badge !bg-blue-600">CodeIgniter</span>
+                        <span class="skill-badge !bg-blue-600">GPT-3 API</span>
+                        <span class="skill-badge !bg-blue-600">Payment Gateway</span>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="card">
+                    <h3 class="text-2xl font-bold text-white mb-3">storyreel</h3>
+                    <p class="text-gray-300 mb-4">A creative tool for generating short videos from text. Utilizes Ffmpeg for video rendering, AWS services for cloud infrastructure, and text-to-speech.</p>
+                     <div class="flex flex-wrap">
+                        <span class="skill-badge !bg-blue-600">CodeIgniter</span>
+                        <span class="skill-badge !bg-blue-600">Ffmpeg</span>
+                        <span class="skill-badge !bg-blue-600">AWS Services</span>
+                    </div>
+                </div>
+                <!-- Project Card 4 -->
+                <div class="card">
+                    <h3 class="text-2xl font-bold text-white mb-3">Partnersintorah</h3>
+                    <p class="text-gray-300 mb-4">A donation-based platform with a Core PHP backend. Integrated with Salesforce CRM to manage donor relationships and contribution data.</p>
+                     <div class="flex flex-wrap">
+                        <span class="skill-badge !bg-blue-600">Core PHP</span>
+                        <span class="skill-badge !bg-blue-600">Salesforce</span>
+                        <span class="skill-badge !bg-blue-600">JavaScript</span>
+                    </div>
+                </div>
+                 <!-- Project Card 5 -->
+                 <div class="card">
+                    <h3 class="text-2xl font-bold text-white mb-3">Prosper India Foundation</h3>
+                    <p class="text-gray-300 mb-4">Developed backend using Core PHP and contributed to a MERN stack version of this foundation's platform.</p>
+                     <div class="flex flex-wrap">
+                        <span class="skill-badge !bg-blue-600">Core PHP</span>
+                        <span class="skill-badge !bg-blue-600">MERN Stack</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Contact Info -->
+                <div class="space-y-6">
+                    <p class="text-lg">
+                        I'm currently available for freelance work and open to discussing new projects. Feel free to reach out through email, phone, or the contact form.
+                    </p>
+                    <div class="space-y-4">
+                        <a href="mailto:harkesh5445@gmail.com" class="flex items-center space-x-3 text-gray-300 hover:text-teal-400 transition-colors">
+                            <i class="fas fa-envelope text-xl text-teal-400"></i>
+                            <span>harkesh5445@gmail.com</span>
+                        </a>
+                        <a href="tel:+917235029541" class="flex items-center space-x-3 text-gray-300 hover:text-teal-400 transition-colors">
+                            <i class="fas fa-phone text-xl text-teal-400"></i>
+                            <span>+91 72350 29541</span>
+                        </a>
+                        <div class="flex items-center space-x-3 text-gray-300">
+                            <i class="fas fa-map-marker-alt text-xl text-teal-400"></i>
+                            <span>New Delhi, India</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Contact Form -->
+                <div>
+                    <form id="contact-form" action="contact.php" method="POST">
+                        <div class="mb-4">
+                            <label for="name" class="block text-white text-sm font-bold mb-2">Name</label>
+                            <input type="text" id="name" name="name" required class="shadow appearance-none border-0 rounded w-full py-3 px-4 bg-gray-800 text-white leading-tight focus:outline-none focus:ring-2 focus:ring-teal-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-white text-sm font-bold mb-2">Email</label>
+                            <input type="email" id="email" name="email" required class="shadow appearance-none border-0 rounded w-full py-3 px-4 bg-gray-800 text-white leading-tight focus:outline-none focus:ring-2 focus:ring-teal-500">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-white text-sm font-bold mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required class="shadow appearance-none border-0 rounded w-full py-3 px-4 bg-gray-800 text-white leading-tight focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <button type="submit" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-8 rounded-full focus:outline-none focus:shadow-outline transition-colors duration-300">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                    <div id="form-status" class="text-center mt-4"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900/50 mt-20">
+        <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+            <p>&copy; <span id="year"></span> Harikesh Kumar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="to-top-button" title="Go To Top"
+        class="hidden fixed z-50 bottom-10 right-10 p-4 border-0 w-14 h-14 rounded-full shadow-md bg-teal-500 hover:bg-teal-600 text-white text-lg font-semibold transition-colors duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Mobile Menu Toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // --- Typing Effect ---
+            const typingTitle = document.getElementById('typing-title');
+            const titles = ["Full-Stack Developer", "PHP Specialist", "Problem Solver"];
+            let titleIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            function type() {
+                const currentTitle = titles[titleIndex];
+                if (isDeleting) {
+                    typingTitle.textContent = currentTitle.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    typingTitle.textContent = currentTitle.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                if (!isDeleting && charIndex === currentTitle.length) {
+                    setTimeout(() => isDeleting = true, 2000);
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    titleIndex = (titleIndex + 1) % titles.length;
+                }
+
+                const typeSpeed = isDeleting ? 100 : 150;
+                setTimeout(type, typeSpeed);
+            }
+            type();
+
+            // --- Scroll to Top Button ---
+            var toTopButton = document.getElementById('to-top-button');
+            window.onscroll = function () {
+                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                    toTopButton.classList.remove("hidden");
+                } else {
+                    toTopButton.classList.add("hidden");
+                }
+            };
+            toTopButton.addEventListener("click", function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // --- Active Nav Link on Scroll ---
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('header nav a');
+
+            window.addEventListener('scroll', ()=> {
+                let current = '';
+                sections.forEach( section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if(pageYOffset >= (sectionTop - sectionHeight / 3)){
+                        current = section.getAttribute('id');
+                    }
+                })
+
+                navLinks.forEach( a => {
+                    a.classList.remove('active');
+                    if(a.href.includes(current)){
+                        a.classList.add('active');
+                    }
+                })
+            });
+
+
+            // --- Footer Year ---
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // --- Contact Form Submission ---
+            const form = document.getElementById('contact-form');
+            const formStatus = document.getElementById('form-status');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                
+                formStatus.textContent = 'Sending...';
+                formStatus.classList.remove('text-red-500', 'text-green-500');
+
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        formStatus.textContent = 'Message sent successfully!';
+                        formStatus.classList.add('text-green-500');
+                        form.reset();
+                    } else {
+                        response.json().then(data => {
+                            if (Object.hasOwn(data, 'errors')) {
+                                formStatus.textContent = data.errors.map(error => error).join(", ");
+                            } else {
+                                formStatus.textContent = 'Oops! There was a problem submitting your form';
+                            }
+                            formStatus.classList.add('text-red-500');
+                        })
+                    }
+                }).catch(error => {
+                    formStatus.textContent = 'Oops! There was a problem submitting your form';
+                    formStatus.classList.add('text-red-500');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
