@@ -3,516 +3,425 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harikesh Kumar - Full-Stack Developer</title>
+    <title>Harikesh Kumar | PHP Developer & Backend Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Custom Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap');
+        
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #111827;
-            /* Subtle background pattern from heropatterns.com */
-            background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231f2937' fill-opacity='0.4'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            color: #e5e7eb; /* Brighter light gray text for better contrast */
+            background-color: #0f172a;
+            color: #e2e8f0;
         }
-        .section-title {
-            backdrop-filter: blur(10px);
-            font-size: 2rem; /* Equivalent to text-5xl */
-            font-weight: 500; /* font-bold */
-            color: #ffffff; /* text-white */
-            margin-bottom: 4rem; /* mb-16 */
+
+        .code-font {
+            font-family: 'Fira Code', monospace;
         }
-        .card {
-            /* Glassmorphism effect */
-            background-color:rgba(45, 55, 72, 0.7);
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            transition: all 0.2s ease-in-out;
+            transition: all 0.3s ease;
         }
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(20, 184, 166, 0.2); /* Teal glow effect */
-            border-color: rgba(20, 184, 166, 0.5); 
-            padding: 20px;
-            background-color:rgba(45, 55, 72, 0.7);
+
+        .glass-card:hover {
+            border-color: #38bdf8;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.2);
         }
-        .skill-badge {
-            @apply bg-teal-600 text-teal-100 text-xs font-semibold mr-2 mb-2 px-3 py-1 rounded-full;
-        }
+
         .nav-link {
-            @apply text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors;
+            position: relative;
+            transition: color 0.3s ease;
         }
-        .nav-link.active {
-            @apply bg-gray-900 text-white;
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #38bdf8;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.1) 0%, rgba(15, 23, 42, 0) 70%);
+        }
+
+        .skill-badge {
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
     </style>
 </head>
-<body class="antialiased">
+<body class="selection:bg-sky-500/30">
 
-    <!-- Header & Navigation -->
-    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
-        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex-shrink-0">
-                    <a href="#" class="text-white font-bold text-xl">Harikesh Kumar</a>
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 top-0 glass-card !border-t-0 !border-x-0 bg-slate-900/80">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold tracking-tighter text-sky-400 code-font">
+                <span class="text-slate-500">&lt;</span>H.Kumar <span class="text-slate-500">/&gt;</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#about" class="nav-link hover:text-sky-400">About</a>
+                <a href="#skills" class="nav-link hover:text-sky-400">Skills</a>
+                <a href="#experience" class="nav-link hover:text-sky-400">Experience</a>
+                <a href="#projects" class="nav-link hover:text-sky-400">Projects</a>
+                <a href="#contact" class="px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-lg transition-colors">Hire Me</a>
+            </div>
+            <button class="md:hidden text-sky-400 text-2xl" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 px-6 py-4 space-y-4 border-b border-slate-800">
+            <a href="#about" class="block text-slate-300" onclick="toggleMenu()">About</a>
+            <a href="#skills" class="block text-slate-300" onclick="toggleMenu()">Skills</a>
+            <a href="#experience" class="block text-slate-300" onclick="toggleMenu()">Experience</a>
+            <a href="#projects" class="block text-slate-300" onclick="toggleMenu()">Projects</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="min-h-screen flex items-center justify-center pt-20 hero-gradient relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <div class="inline-block px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-semibold tracking-wider uppercase">
+                    Available for new opportunities
                 </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#about" class="nav-link">About</a>
-                        <a href="#skills" class="nav-link">Skills</a>
-                        <a href="#experience" class="nav-link">Experience</a>
-                        <a href="#education" class="nav-link">Education</a>
-                        <a href="#projects" class="nav-link">Projects</a>
-                        <a href="#contact" class="nav-link">Contact</a>
-                    </div>
+                <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight leading-tight">
+                    Backend Engineer <span class="text-sky-400">Expert.</span>
+                </h1>
+                <p class="text-lg text-slate-400 max-w-lg leading-relaxed">
+                    Hi, I'm <span class="text-white font-semibold">Harikesh Kumar</span>. A PHP Developer with 4+ years of experience. Handled SMTP email functionality for <span class="text-sky-400 font-semibold">30+ CodeIgniter projects</span> and built high-performance AI-driven backends.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#projects" class="px-8 py-3 bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-lg transition-all shadow-lg shadow-sky-500/20">
+                        View Work
+                    </a>
+                    <a href="#contact" class="px-8 py-3 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-lg border border-slate-700 transition-all">
+                        Contact Me
+                    </a>
                 </div>
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                        <span class="sr-only">Open main menu</span>
-                        <i class="fas fa-bars"></i>
-                    </button>
+                <div class="flex space-x-6 text-2xl text-slate-500 pt-6">
+                    <a href="https://www.linkedin.com/in/harikesh-kumar-448833204/" target="_blank" class="hover:text-sky-400 transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="mailto:harkesh5445@gmail.com" class="hover:text-sky-400 transition-colors"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://github.com/harkesh5445" target="_blank" class="hover:text-sky-400 transition-colors"><i class="fa-brands fa-github"></i></a>
                 </div>
             </div>
-        </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden hidden">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about" class="block nav-link text-base">About</a>
-                <a href="#skills" class="block nav-link text-base">Skills</a>
-                <a href="#experience" class="block nav-link text-base">Experience</a>
-                <a href="#education" class="block nav-link text-base">Education</a>
-                <a href="#projects" class="block nav-link text-base">Projects</a>
-                <a href="#contact" class="block nav-link text-base">Contact</a>
+            <div class="hidden md:block relative">
+                <div class="w-80 h-80 bg-sky-500 rounded-full blur-[100px] absolute -top-10 -right-10 opacity-20"></div>
+                <div class="glass-card p-6 rounded-2xl relative z-10">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <pre class="text-sm code-font leading-relaxed text-sky-300">
+<span class="text-pink-400">class</span> <span class="text-yellow-400">BackendPro</span> {
+  <span class="text-pink-400">public</span> <span class="text-sky-400">$experience</span> = <span class="text-green-400">'4+ Years'</span>;
+  <span class="text-pink-400">public</span> <span class="text-sky-400">$smtpProjects</span> = <span class="text-green-400">30</span>;
+  
+  <span class="text-pink-400">public function</span> <span class="text-yellow-400">deployEmailService</span>() {
+    <span class="text-pink-400">return</span> <span class="text-sky-400">$this</span>->smtp->send([
+      <span class="text-green-400">'status'</span> => <span class="text-green-400">'Optimized & Scalable'</span>
+    ]);
+  }
+}
+                    </pre>
+                </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <main class="container mx-auto px-4 sm:px-6 lg:px-8">
-
-        <!-- About/Hero Section -->
-        <section id="about" class="min-h-screen flex items-center justify-center text-center py-20">
-            <div class="max-w-4xl">
-                <h1 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-4">
-                    Hi, I'm Harikesh Kumar
-                </h1>
-                <p id="typing-title" class="text-3xl md:text-4xl text-teal-400 mb-8 font-semibold"></p>
-                <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-4xl mx-auto">
-                    A results-oriented Full-Stack Developer with four years of hands-on experience in the complete lifecycle of web application development, from conception and design to deployment and maintenance. My expertise lies in building robust backend systems using PHP and its frameworks like Laravel and CodeIgniter, complemented by a strong command of frontend technologies including JavaScript, HTML, and CSS. I have a proven track record of successfully integrating complex third-party services, including RESTful APIs, payment gateways, and CRM systems. I am passionate about tackling challenging problems, as demonstrated by my work on AI-driven and video processing applications, and I am always eager to leverage my skills to create innovative, scalable, and efficient software solutions.
-                </p>
-                <div class="flex justify-center space-x-6">
-                    <a href="mailto:harkesh5445@gmail.com" class="text-gray-400 hover:text-teal-400 transition-colors text-3xl"><i class="fas fa-envelope"></i></a>
-                    <a href="https://www.linkedin.com/in/harikesh-kumar-448833204/" class="text-gray-400 hover:text-teal-400 transition-colors text-3xl"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/harkesh5445?tab=repositories" class="text-gray-400 hover:text-teal-400 transition-colors text-3xl"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                <!-- Skill Card 1 -->
-                <div class="card">
-                    <h3 class="text-2xl font-bold text-white mb-3"><i class="fas fa-server mr-2 text-teal-400"></i>Backend</h3>
-                    <p class="text-gray-300 mb-4 text-sm">Proficient in server-side logic, database management, and API development.</p>
-                    <div class="flex flex-wrap">
-                        <span class="skill-badge">PHP</span>
-                        <span class="skill-badge">Core PHP</span>
-                        <span class="skill-badge">Laravel</span>
-                        <span class="skill-badge">CodeIgniter</span>
-                        <span class="skill-badge">Node.js</span>
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-16">Technical <span class="text-sky-400">Toolkit</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl text-left">
+                    <div class="w-12 h-12 bg-sky-500/10 rounded-xl flex items-center justify-center text-sky-400 mb-6 text-2xl">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Backend Mastery</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-md skill-badge text-sm">PHP (Laravel & CI3)</span>
+                        <span class="px-3 py-1 rounded-md skill-badge text-sm">SMTP / Email Integration</span>
+                        <span class="px-3 py-1 rounded-md skill-badge text-sm">CodeIgniter Expert</span>
+                        <span class="px-3 py-1 rounded-md skill-badge text-sm">Node.js (MERN)</span>
                     </div>
                 </div>
-                <!-- Skill Card 2 -->
-                <div class="card">
-                    <h3 class="text-2xl font-bold text-white mb-3"><i class="fas fa-code mr-2 text-teal-400"></i>Frontend</h3>
-                    <p class="text-gray-300 mb-4 text-sm">Building responsive and interactive user interfaces with modern web technologies.</p>
-                    <div class="flex flex-wrap">
-                        <span class="skill-badge">HTML5</span>
-                        <span class="skill-badge">CSS3</span>
-                        <span class="skill-badge">JavaScript</span>
-                        <span class="skill-badge">jQuery</span>
-                        <span class="skill-badge">Bootstrap</span>
+                <div class="glass-card p-8 rounded-2xl text-left">
+                    <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-400 mb-6 text-2xl">
+                        <i class="fa-solid fa-plug-circle-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">APIs & Integrations</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20 text-sm">OpenAI GPT-3</span>
+                        <span class="px-3 py-1 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20 text-sm">SMTP Mailer Services</span>
+                        <span class="px-3 py-1 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20 text-sm">Salesforce CRM</span>
+                        <span class="px-3 py-1 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20 text-sm">Payment Gateways</span>
                     </div>
                 </div>
-                <!-- Skill Card 3 -->
-                <div class="card">
-                    <h3 class="text-2xl font-bold text-white mb-3"><i class="fas fa-database mr-2 text-teal-400"></i>Databases</h3>
-                     <p class="text-gray-300 mb-4 text-sm">Managing relational and NoSQL databases for efficient data storage and retrieval.</p>
-                    <div class="flex flex-wrap">
-                        <span class="skill-badge">MySQL</span>
-                        <span class="skill-badge">MongoDB</span>
+                <div class="glass-card p-8 rounded-2xl text-left">
+                    <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-400 mb-6 text-2xl">
+                        <i class="fa-solid fa-layer-group"></i>
                     </div>
-                </div>
-                <!-- Skill Card 4 -->
-                <div class="card">
-                    <h3 class="text-2xl font-bold text-white mb-3"><i class="fas fa-cogs mr-2 text-teal-400"></i>DevOps & Tools</h3>
-                    <p class="text-gray-300 mb-4 text-sm">Using essential tools to streamline development and ensure smooth deployments.</p>
-                    <div class="flex flex-wrap">
-                        <span class="skill-badge">Git</span>
-                        <span class="skill-badge">AWS (S3, Polly, EC2)</span>
-                        <span class="skill-badge">JIRA</span>
-                        <span class="skill-badge">Ffmpeg</span>
-                    </div>
-                </div>
-                <!-- Skill Card 5 -->
-                <div class="card lg:col-start-2">
-                    <h3 class="text-2xl font-bold text-white mb-3"><i class="fas fa-project-diagram mr-2 text-teal-400"></i>APIs & Others</h3>
-                    <p class="text-gray-300 mb-4 text-sm">Integrating third-party services like payment gateways and social media APIs.</p>
-                    <div class="flex flex-wrap">
-                        <span class="skill-badge">RESTful API Design</span>
-                        <span class="skill-badge">Payment Gateways</span>
-                        <span class="skill-badge">CRM Integration</span>
+                    <h3 class="text-xl font-bold text-white mb-4">Cloud & Processing</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-sm">AWS (S3, EC2)</span>
+                        <span class="px-3 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-sm">FFmpeg Video</span>
+                        <span class="px-3 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-sm">MySQL / MongoDB</span>
+                        <span class="px-3 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-sm">Git / Linux Admin</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="py-20">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="relative border-l-2 border-gray-700 max-w-3xl mx-auto">
-                <!-- Timeline Item 1 -->
-                <div class="mb-10 ml-6">
-                    <span class="absolute flex items-center justify-center w-6 h-6 bg-teal-500 rounded-full -left-3 ring-8 ring-gray-800">
-                        <i class="fas fa-briefcase text-white text-xs"></i>
-                    </span>
-                    <div class="p-4 rounded-lg bg-gray-800/50">
-                        <h3 class="text-2xl font-semibold text-white">PHP Developer</h3>
-                        <p class="text-md font-normal text-gray-400">Regenesys Business School | Remote</p>
-                        <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Dec 2024 - Present</time>
-                        <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1 text-sm">
-                            <li>Develop and maintain robust, secure, and scalable web applications.</li>
-                            <li>Contribute to various CRM platforms (VINE Retail, Doctor, DCS).</li>
-                            <li>Integrate various APIs and payment gateways.</li>
-                        </ul>
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center">Featured <span class="text-sky-400">Projects</span></h2>
+            <p class="text-slate-400 text-center mb-16 max-w-2xl mx-auto">Scaling web applications through advanced backend logic, AI integration, and high-volume communication systems.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1: Xfilly -->
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center group-hover:bg-slate-700 transition-colors relative">
+                        <i class="fa-solid fa-share-nodes text-5xl text-sky-500/50"></i>
+                        <span class="absolute top-4 right-4 bg-sky-500 text-white text-[10px] px-2 py-1 rounded font-bold">SOCIAL SAAS</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Xfilly</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">A social media management app for organizations. Handled complex posting logic and multi-platform API synchronization.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-800 text-sky-400 uppercase">PHP</span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-800 text-sky-400 uppercase">CI3</span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-800 text-sky-400 uppercase">SMTP</span>
+                        </div>
                     </div>
                 </div>
-                <!-- Timeline Item 2 -->
-                <div class="mb-10 ml-6">
-                    <span class="absolute flex items-center justify-center w-6 h-6 bg-teal-500 rounded-full -left-3 ring-8 ring-gray-800">
-                        <i class="fas fa-briefcase text-white text-xs"></i>
-                    </span>
-                    <div class="p-4 rounded-lg bg-gray-800/50">
-                        <h3 class="text-2xl font-semibold text-white">Software Engineer</h3>
-                        <p class="text-md font-normal text-gray-400">Techferry | Full-time</p>
-                        <time class="block mb-2 text-sm font-normal leading-none text-gray-500">July 2023 - Dec 2024</time>
-                        <p class="text-gray-300 mt-2 text-sm">Served as a Full-Stack Developer, contributing to both frontend and backend development cycles.</p>
+
+                <!-- Project 2: AI Staffs -->
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center group-hover:bg-slate-700 transition-colors relative">
+                        <i class="fa-solid fa-brain text-5xl text-purple-500/50"></i>
+                        <span class="absolute top-4 right-4 bg-purple-500 text-white text-[10px] px-2 py-1 rounded font-bold">AI ENGINE</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">AI Staffs</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">AI-powered application featuring GPT-3 integration for advanced text generation and automated subscription workflows.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-800 text-purple-400 uppercase">GPT-3</span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-800 text-purple-400 uppercase">Payment</span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-800 text-purple-400 uppercase">CI3</span>
+                        </div>
                     </div>
                 </div>
-                <!-- Timeline Item 3 -->
-                <div class="mb-10 ml-6">
-                     <span class="absolute flex items-center justify-center w-6 h-6 bg-teal-500 rounded-full -left-3 ring-8 ring-gray-800">
-                        <i class="fas fa-briefcase text-white text-xs"></i>
-                    </span>
-                    <div class="p-4 rounded-lg bg-gray-800/50">
-                        <h3 class="text-2xl font-semibold text-white">PHP Backend Developer</h3>
-                        <p class="text-md font-normal text-gray-400">vega6 webvare technology | Full-time</p>
-                        <time class="block mb-2 text-sm font-normal leading-none text-gray-500">April 2022 - July 2023</time>
-                        <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1 text-sm">
-                            <li>Led backend development, bug fixing, and email handling.</li>
-                            <li>Worked on complex AI-based and video processing web applications.</li>
-                            <li>Managed and fixed bugs across more than 50 applications.</li>
-                        </ul>
+
+                <!-- Project 3: VineCRMS -->
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center group-hover:bg-slate-700 transition-colors relative">
+                        <i class="fa-solid fa-users-viewfinder text-5xl text-emerald-500/50"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">VineCRMS Ecosystem</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">Robust CRM suite for Retail, DCS, and DR domains. Integrated automated SMTP notifications for lead status updates.</p>
+                        <div class="flex flex-col gap-1 text-xs">
+                            <a href="https://retail.vinecrms.com" class="text-sky-400 hover:underline">retail.vinecrms.com</a>
+                            <a href="https://dcs.vinecrms.com" class="text-sky-400 hover:underline">dcs.vinecrms.com</a>
+                        </div>
                     </div>
                 </div>
-                <!-- Timeline Item 4 -->
-                <div class="ml-6">
-                     <span class="absolute flex items-center justify-center w-6 h-6 bg-teal-500 rounded-full -left-3 ring-8 ring-gray-800">
-                        <i class="fas fa-briefcase text-white text-xs"></i>
-                    </span>
-                    <div class="p-4 rounded-lg bg-gray-800/50">
-                        <h3 class="text-2xl font-semibold text-white">Core PHP and Laravel Developer</h3>
-                        <p class="text-md font-normal text-gray-400">webwire software solutions | Full-time</p>
-                        <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Jan 2022 - April 2022</time>
-                        <p class="text-gray-300 mt-2 text-sm">Focused on backend development for e-commerce projects, building features and functionality.</p>
+
+                <!-- Project 4: Wooduu -->
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center group-hover:bg-slate-700 transition-colors relative">
+                        <i class="fa-brands fa-youtube text-5xl text-red-500/50"></i>
+                        <span class="absolute top-4 right-4 bg-red-500 text-white text-[10px] px-2 py-1 rounded font-bold">VIDEO TECH</span>
                     </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Wooduu</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">YouTube creator tool with FFmpeg video processing. Integrated SMTP alerts for video render completion.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-800 text-red-400 uppercase">FFmpeg</span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-800 text-red-400 uppercase">AWS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Storyreel -->
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center group-hover:bg-slate-700 transition-colors relative">
+                        <i class="fa-solid fa-microphone-lines text-5xl text-orange-500/50"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Storyreel</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">Automated video creation tool featuring AWS Polly voiceovers and automated social media distribution.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-800 text-orange-400 uppercase">AWS Polly</span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-800 text-orange-400 uppercase">CI3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: New India Abroad -->
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center group-hover:bg-slate-700 transition-colors relative">
+                        <i class="fa-solid fa-newspaper text-5xl text-sky-400/50"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">New India Abroad</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">High-traffic global news platform for the Indian diaspora. Optimized for massive concurrent reader sessions.</p>
+                        <a href="https://www.newindiaabroad.com" target="_blank" class="text-sky-400 text-sm font-semibold hover:underline">Visit Site →</a>
+                    </div>
+                </div>
+
+                <!-- Project 7: Partners in Torah -->
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center group-hover:bg-slate-700 transition-colors relative">
+                        <i class="fa-solid fa-heart-pulse text-5xl text-pink-500/50"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Partners in Torah</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">Donation platform with Salesforce integration and reliable SMTP receipt generation systems.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-800 text-pink-400 uppercase">Core PHP</span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-800 text-pink-400 uppercase">Salesforce</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8: Prosper India Foundation -->
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center group-hover:bg-slate-700 transition-colors relative">
+                        <i class="fa-solid fa-building-ngo text-5xl text-yellow-500/50"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Prosper India</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">Developed backend features using Core PHP and contributed to the modern MERN-stack architecture.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-800 text-yellow-400 uppercase">MERN</span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-800 text-yellow-400 uppercase">PHP</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 max-w-4xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Work <span class="text-sky-400">Journey</span></h2>
+        <div class="space-y-12 relative before:absolute before:inset-0 before:ml-5 md:before:ml-[2.25rem] before:h-full before:w-0.5 before:bg-slate-800">
+            <!-- Regenesys -->
+            <div class="relative pl-12 md:pl-20">
+                <div class="absolute left-0 md:left-7 w-10 h-10 bg-slate-900 border-2 border-sky-500 rounded-full flex items-center justify-center z-10 shadow-[0_0_15px_rgba(56,189,248,0.3)]">
+                    <i class="fa-solid fa-briefcase text-sky-400 text-sm"></i>
+                </div>
+                <div class="glass-card p-6 rounded-2xl">
+                    <span class="text-sky-400 text-sm font-semibold">Dec 2024 - Present</span>
+                    <h3 class="text-xl font-bold text-white mt-1">PHP Developer</h3>
+                    <p class="text-slate-400 mb-4">Regenesys Business School (Remote)</p>
+                    <ul class="text-slate-400 space-y-2 text-sm list-disc pl-4">
+                        <li>Developing CRM-based web applications using Core PHP and MySQL.</li>
+                        <li>Implementing REST APIs and complex third-party integrations.</li>
+                        <li>Optimizing backend performance and database query efficiency.</li>
+                    </ul>
                 </div>
             </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" class="py-20">
-            <h2 class="section-title">Education</h2>
-            <div class="relative border-l-2 border-gray-700 max-w-3xl mx-auto">
-                <!-- Timeline Item 1 -->
-                <div class="mb-10 ml-6">
-                    <span class="absolute flex items-center justify-center w-6 h-6 bg-teal-500 rounded-full -left-3 ring-8 ring-gray-800">
-                        <i class="fas fa-graduation-cap text-white text-xs"></i>
-                    </span>
-                    <div class="p-4 rounded-lg bg-gray-800/50">
-                        <h3 class="text-2xl font-semibold text-white">B.Tech/B.E. Computers</h3>
-                        <p class="text-md font-normal text-gray-400">Dr. A.P.J. Abdul Kalam Technical University</p>
-                        <time class="block mb-2 text-sm font-normal leading-none text-gray-500">2017 - 2021</time>
-                    </div>
+            <!-- Techferry -->
+            <div class="relative pl-12 md:pl-20">
+                <div class="absolute left-0 md:left-7 w-10 h-10 bg-slate-900 border-2 border-slate-700 rounded-full flex items-center justify-center z-10">
+                    <i class="fa-solid fa-code text-slate-500 text-sm"></i>
                 </div>
-                <!-- Timeline Item 2 -->
-                <div class="mb-10 ml-6">
-                    <span class="absolute flex items-center justify-center w-6 h-6 bg-teal-500 rounded-full -left-3 ring-8 ring-gray-800">
-                        <i class="fas fa-graduation-cap text-white text-xs"></i>
-                    </span>
-                    <div class="p-4 rounded-lg bg-gray-800/50">
-                        <h3 class="text-2xl font-semibold text-white">Class XII</h3>
-                        <p class="text-md font-normal text-gray-400">Adarsh Inter College, Amethi (Uttar Pradesh Board)</p>
-                        <time class="block mb-2 text-sm font-normal leading-none text-gray-500">2015 - 2017</time>
-                    </div>
-                </div>
-                <!-- Timeline Item 3 -->
-                <div class="ml-6">
-                     <span class="absolute flex items-center justify-center w-6 h-6 bg-teal-500 rounded-full -left-3 ring-8 ring-gray-800">
-                        <i class="fas fa-graduation-cap text-white text-xs"></i>
-                    </span>
-                    <div class="p-4 rounded-lg bg-gray-800/50">
-                        <h3 class="text-2xl font-semibold text-white">Class X</h3>
-                        <p class="text-md font-normal text-gray-400">Jawahar Lala Nehru Inter College, Barabanki (Uttar Pradesh Board)</p>
-                        <time class="block mb-2 text-sm font-normal leading-none text-gray-500">2015</time>
-                    </div>
+                <div class="glass-card p-6 rounded-2xl">
+                    <span class="text-slate-500 text-sm font-semibold">Jul 2023 - Dec 2024</span>
+                    <h3 class="text-xl font-bold text-white mt-1">Software Engineer</h3>
+                    <p class="text-slate-400 mb-4">Techferry</p>
+                    <ul class="text-slate-400 space-y-2 text-sm list-disc pl-4">
+                        <li>Full SDLC management for high-scale SaaS applications.</li>
+                        <li>Built backend services using Laravel and Advanced PHP OOPS.</li>
+                        <li>Enhanced system stability through meticulous performance tuning.</li>
+                    </ul>
                 </div>
             </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="py-20">
-            <h2 class="section-title">Key Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Project Card 1 -->
-                <div class="card">
-                    <h3 class="text-2xl font-bold text-white mb-3">wooduu</h3>
-                    <p class="text-gray-300 mb-4">A video generation tool for YouTube creators. Automates video creation using Ffmpeg and integrates with AWS APIs for cloud storage and processing.</p>
-                    <div class="flex flex-wrap">
-                        <span class="skill-badge !bg-blue-600">CodeIgniter</span>
-                        <span class="skill-badge !bg-blue-600">Ffmpeg</span>
-                        <span class="skill-badge !bg-blue-600">AWS APIs</span>
-                    </div>
+            <!-- Vega6 -->
+            <div class="relative pl-12 md:pl-20">
+                <div class="absolute left-0 md:left-7 w-10 h-10 bg-slate-900 border-2 border-slate-700 rounded-full flex items-center justify-center z-10">
+                    <i class="fa-solid fa-microchip text-slate-500 text-sm"></i>
                 </div>
-                <!-- Project Card 2 -->
-                <div class="card">
-                    <h3 class="text-2xl font-bold text-white mb-3">Aistaffs</h3>
-                    <p class="text-gray-300 mb-4">An innovative AI-powered platform using CodeIgniter. Integrates the GPT-3 API for intelligent features and includes secure payment gateway integration.</p>
-                    <div class="flex flex-wrap">
-                        <span class="skill-badge !bg-blue-600">CodeIgniter</span>
-                        <span class="skill-badge !bg-blue-600">GPT-3 API</span>
-                        <span class="skill-badge !bg-blue-600">Payment Gateway</span>
-                    </div>
-                </div>
-                <!-- Project Card 3 -->
-                <div class="card">
-                    <h3 class="text-2xl font-bold text-white mb-3">storyreel</h3>
-                    <p class="text-gray-300 mb-4">A creative tool for generating short videos from text. Utilizes Ffmpeg for video rendering, AWS services for cloud infrastructure, and text-to-speech.</p>
-                     <div class="flex flex-wrap">
-                        <span class="skill-badge !bg-blue-600">CodeIgniter</span>
-                        <span class="skill-badge !bg-blue-600">Ffmpeg</span>
-                        <span class="skill-badge !bg-blue-600">AWS Services</span>
-                    </div>
-                </div>
-                <!-- Project Card 4 -->
-                <div class="card">
-                    <h3 class="text-2xl font-bold text-white mb-3">Partnersintorah</h3>
-                    <p class="text-gray-300 mb-4">A donation-based platform with a Core PHP backend. Integrated with Salesforce CRM to manage donor relationships and contribution data.</p>
-                     <div class="flex flex-wrap">
-                        <span class="skill-badge !bg-blue-600">Core PHP</span>
-                        <span class="skill-badge !bg-blue-600">Salesforce</span>
-                        <span class="skill-badge !bg-blue-600">JavaScript</span>
-                    </div>
-                </div>
-                 <!-- Project Card 5 -->
-                 <div class="card">
-                    <h3 class="text-2xl font-bold text-white mb-3">Prosper India Foundation</h3>
-                    <p class="text-gray-300 mb-4">Developed backend using Core PHP and contributed to a MERN stack version of this foundation's platform.</p>
-                     <div class="flex flex-wrap">
-                        <span class="skill-badge !bg-blue-600">Core PHP</span>
-                        <span class="skill-badge !bg-blue-600">MERN Stack</span>
-                    </div>
+                <div class="glass-card p-6 rounded-2xl">
+                    <span class="text-slate-500 text-sm font-semibold">Apr 2022 - Jul 2023</span>
+                    <h3 class="text-xl font-bold text-white mt-1">PHP Backend Developer</h3>
+                    <p class="text-slate-400 mb-4">Vega6 Webware Technology</p>
+                    <ul class="text-slate-400 space-y-2 text-sm list-disc pl-4">
+                        <li>Led CodeIgniter-based development for AI and video-processing tools.</li>
+                        <li>Managed and maintained 20+ live web applications.</li>
+                        <li>Integrated FFmpeg for automated video generation workflows.</li>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-20">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <!-- Contact Info -->
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 max-w-6xl mx-auto px-6">
+        <div class="glass-card p-12 rounded-3xl grid md:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Let's build <span class="text-sky-400">together.</span></h2>
                 <div class="space-y-6">
-                    <p class="text-lg">
-                        I'm currently available for freelance work and open to discussing new projects. Feel free to reach out through email, phone, or the contact form.
-                    </p>
-                    <div class="space-y-4">
-                        <a href="mailto:harkesh5445@gmail.com" class="flex items-center space-x-3 text-gray-300 hover:text-teal-400 transition-colors">
-                            <i class="fas fa-envelope text-xl text-teal-400"></i>
-                            <span>harkesh5445@gmail.com</span>
-                        </a>
-                        <a href="tel:+917235029541" class="flex items-center space-x-3 text-gray-300 hover:text-teal-400 transition-colors">
-                            <i class="fas fa-phone text-xl text-teal-400"></i>
-                            <span>+91 72350 29541</span>
-                        </a>
-                        <div class="flex items-center space-x-3 text-gray-300">
-                            <i class="fas fa-map-marker-alt text-xl text-teal-400"></i>
-                            <span>New Delhi, India</span>
-                        </div>
+                    <div class="flex items-center space-x-4 group">
+                        <div class="w-10 h-10 bg-sky-500/10 rounded-full flex items-center justify-center text-sky-400 group-hover:bg-sky-500 group-hover:text-white transition-all"><i class="fa-solid fa-phone"></i></div>
+                        <span class="text-slate-300 group-hover:text-white">+91 72350 29541</span>
+                    </div>
+                    <div class="flex items-center space-x-4 group">
+                        <div class="w-10 h-10 bg-sky-500/10 rounded-full flex items-center justify-center text-sky-400 group-hover:bg-sky-500 group-hover:text-white transition-all"><i class="fa-solid fa-envelope"></i></div>
+                        <span class="text-slate-300 group-hover:text-white">harkesh5445@gmail.com</span>
+                    </div>
+                    <a href="https://www.linkedin.com/in/harikesh-kumar-448833204/" target="_blank" class="flex items-center space-x-4 group">
+                        <div class="w-10 h-10 bg-sky-500/10 rounded-full flex items-center justify-center text-sky-400 group-hover:bg-sky-500 group-hover:text-white transition-all"><i class="fa-brands fa-linkedin"></i></div>
+                        <span class="text-slate-300 group-hover:text-white">linkedin.com/in/harikesh-kumar</span>
+                    </a>
+                    <div class="flex items-center space-x-4 group">
+                        <div class="w-10 h-10 bg-sky-500/10 rounded-full flex items-center justify-center text-sky-400 group-hover:bg-sky-500 group-hover:text-white transition-all"><i class="fa-solid fa-location-dot"></i></div>
+                        <span class="text-slate-300 group-hover:text-white">Lucknow, India</span>
                     </div>
                 </div>
-                <!-- Contact Form -->
-                <div>
-                    <form id="contact-form" action="contact.php" method="POST">
-                        <div class="mb-4">
-                            <label for="name" class="block text-white text-sm font-bold mb-2">Name</label>
-                            <input type="text" id="name" name="name" required class="shadow appearance-none border-0 rounded w-full py-3 px-4 bg-gray-800 text-white leading-tight focus:outline-none focus:ring-2 focus:ring-teal-500">
-                        </div>
-                        <div class="mb-4">
-                            <label for="email" class="block text-white text-sm font-bold mb-2">Email</label>
-                            <input type="email" id="email" name="email" required class="shadow appearance-none border-0 rounded w-full py-3 px-4 bg-gray-800 text-white leading-tight focus:outline-none focus:ring-2 focus:ring-teal-500">
-                        </div>
-                        <div class="mb-6">
-                            <label for="message" class="block text-white text-sm font-bold mb-2">Message</label>
-                            <textarea id="message" name="message" rows="5" required class="shadow appearance-none border-0 rounded w-full py-3 px-4 bg-gray-800 text-white leading-tight focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
-                        </div>
-                        <div class="flex items-center justify-center">
-                            <button type="submit" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-8 rounded-full focus:outline-none focus:shadow-outline transition-colors duration-300">
-                                Send Message
-                            </button>
-                        </div>
-                    </form>
-                    <div id="form-status" class="text-center mt-4"></div>
-                </div>
             </div>
-        </section>
-
-    </main>
+            <form class="space-y-4" onsubmit="event.preventDefault(); document.getElementById('success-msg').classList.remove('hidden');">
+                <input type="text" placeholder="Your Name" class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500 transition-colors">
+                <input type="email" placeholder="Your Email" class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500 transition-colors">
+                <textarea placeholder="Tell me about your project..." rows="4" class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500 transition-colors"></textarea>
+                <button type="submit" class="w-full bg-sky-500 hover:bg-sky-600 text-white font-bold py-4 rounded-lg transition-all shadow-lg shadow-sky-500/20">Send Message</button>
+                <div id="success-msg" class="hidden text-emerald-400 text-center text-sm font-semibold mt-4">Thank you! I will get back to you soon.</div>
+            </form>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900/50 mt-20">
-        <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-gray-400">
-            <p>&copy; <span id="year"></span> Harikesh Kumar. All Rights Reserved.</p>
+    <footer class="py-12 border-t border-slate-800 text-center">
+        <div class="text-slate-500 text-sm">
+            &copy; 2025 Harikesh Kumar. 4+ Years & 30+ SMTP Project Integrations.
         </div>
     </footer>
 
-    <!-- Scroll to Top Button -->
-    <button id="to-top-button" title="Go To Top"
-        class="hidden fixed z-50 bottom-10 right-10 p-4 border-0 w-14 h-14 rounded-full shadow-md bg-teal-500 hover:bg-teal-600 text-white text-lg font-semibold transition-colors duration-300">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // --- Mobile Menu Toggle ---
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-
-            // --- Typing Effect ---
-            const typingTitle = document.getElementById('typing-title');
-            const titles = ["Full-Stack Developer", "PHP Specialist", "Problem Solver"];
-            let titleIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
-
-            function type() {
-                const currentTitle = titles[titleIndex];
-                if (isDeleting) {
-                    typingTitle.textContent = currentTitle.substring(0, charIndex - 1);
-                    charIndex--;
-                } else {
-                    typingTitle.textContent = currentTitle.substring(0, charIndex + 1);
-                    charIndex++;
-                }
-
-                if (!isDeleting && charIndex === currentTitle.length) {
-                    setTimeout(() => isDeleting = true, 2000);
-                } else if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    titleIndex = (titleIndex + 1) % titles.length;
-                }
-
-                const typeSpeed = isDeleting ? 100 : 150;
-                setTimeout(type, typeSpeed);
-            }
-            type();
-
-            // --- Scroll to Top Button ---
-            var toTopButton = document.getElementById('to-top-button');
-            window.onscroll = function () {
-                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                    toTopButton.classList.remove("hidden");
-                } else {
-                    toTopButton.classList.add("hidden");
-                }
-            };
-            toTopButton.addEventListener("click", function () {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-
-            // --- Active Nav Link on Scroll ---
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('header nav a');
-
-            window.addEventListener('scroll', ()=> {
-                let current = '';
-                sections.forEach( section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    if(pageYOffset >= (sectionTop - sectionHeight / 3)){
-                        current = section.getAttribute('id');
-                    }
-                })
-
-                navLinks.forEach( a => {
-                    a.classList.remove('active');
-                    if(a.href.includes(current)){
-                        a.classList.add('active');
-                    }
-                })
-            });
-
-
-            // --- Footer Year ---
-            document.getElementById('year').textContent = new Date().getFullYear();
-
-            // --- Contact Form Submission ---
-            const form = document.getElementById('contact-form');
-            const formStatus = document.getElementById('form-status');
-            
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const formData = new FormData(form);
-                
-                formStatus.textContent = 'Sending...';
-                formStatus.classList.remove('text-red-500', 'text-green-500');
-
-                fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                }).then(response => {
-                    if (response.ok) {
-                        formStatus.textContent = 'Message sent successfully!';
-                        formStatus.classList.add('text-green-500');
-                        form.reset();
-                    } else {
-                        response.json().then(data => {
-                            if (Object.hasOwn(data, 'errors')) {
-                                formStatus.textContent = data.errors.map(error => error).join(", ");
-                            } else {
-                                formStatus.textContent = 'Oops! There was a problem submitting your form';
-                            }
-                            formStatus.classList.add('text-red-500');
-                        })
-                    }
-                }).catch(error => {
-                    formStatus.textContent = 'Oops! There was a problem submitting your form';
-                    formStatus.classList.add('text-red-500');
-                });
-            });
-        });
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
     </script>
 </body>
 </html>
